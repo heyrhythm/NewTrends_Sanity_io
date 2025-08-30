@@ -16,15 +16,15 @@ async function getData(category: string) {
   return data as simplifiedProduct[];
 }
 
-interface CategoryPageProps {
+// ✅ Explicit props, no PageProps involved
+type Props = {
   params: {
     category: string;
   };
-}
+};
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
+export default async function CategoryPage({ params }: Props) {
   const { category } = params;
-
   const data = await getData(category);
 
   return (
