@@ -18,7 +18,7 @@ export default function ImageGallery({image}:imageGalleryProps) {
      return (
         <div className="grid gap-4 grid-cols-5" >
             <div className="gap-4 flex flex-col lg-order-none ">
-               { image.map((img:any, idx) => (
+               { image.map((img:Any, idx) => (
                 <div key={idx} className="order-last overflow-hidden rounded-lg bg-gray-100" >
                     <Image 
                     src={urlFor(img).url()}

@@ -2,12 +2,13 @@
 import { Button } from "@/components/ui/button";
 import { urlFor } from "@/sanity/lib/image";
 import { useShoppingCart } from "use-shopping-cart";
+import { Any } from "next-sanity";
 export interface Productcart{
     name: string;
     description: string;
     price: number;
     currency: string;
-    image: any;
+    image: Any;
     price_id:string;
 }
 

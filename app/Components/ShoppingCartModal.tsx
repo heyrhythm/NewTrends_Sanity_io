@@ -13,6 +13,7 @@ import { Heading1 } from "lucide-react";
 import { useShoppingCart } from "use-shopping-cart";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Any } from "next-sanity";
 
 export function ShoppingCartModal() {
   const {
@@ -25,7 +26,7 @@ export function ShoppingCartModal() {
     redirectToCheckout,
   } = useShoppingCart();
   
- async function handleCheckoutClick(event:any) {
+ async function handleCheckoutClick(event:Any) {
   event.preventDefault();
   try {
     const result = await redirectToCheckout();
@@ -47,7 +48,7 @@ export function ShoppingCartModal() {
           <div className="mt-8 flex-1 w-110 overflow-y-auto">
             <ul className="-my-6 ml-5 divide-y divide-gray-200 ">
               {cartCount === 0 ? (
-                <h1 className="py-6">You don't have any items</h1>
+                <h1 className="py-6">You dont have any items</h1>
               ) : (
                 <>
                   {Object.values(cartDetails ?? {}).map((entry) => (
