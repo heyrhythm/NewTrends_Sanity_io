@@ -13,30 +13,26 @@ async function getData(category: string) {
     "ImageUrl": image[0].asset->url
   }`;
   const data = await client.fetch(query, { category });
-  return data;
+  return data as simplifiedProduct[];
 }
 
-interface PageProps {
+interface CategoryPageProps {
   params: {
     category: string;
   };
 }
 
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { category } = params;
 
-export default async function CategoryPage({
-  params,
-}: PageProps) { 
-  const { category } = params; 
-  console.log("Category param:", category);
-
-  const data: simplifiedProduct[] = await getData(category);
+  const data = await getData(category);
 
   return (
     <div className="bg-white">
       <div className="max-w-2xl lg:max-w-7xl mx-auto px-4 sm:px-6 sm:py-24 lg:px-8 py-7">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-            Our Products for {params.category}
+            Our Products for {category}
           </h2>
         </div>
 
@@ -79,4 +75,3 @@ export default async function CategoryPage({
     </div>
   );
 }
-
