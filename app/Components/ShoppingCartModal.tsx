@@ -1,15 +1,11 @@
 "use client";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/components/ui/sheet";
-import { Heading1 } from "lucide-react";
+
 import { useShoppingCart } from "use-shopping-cart";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -25,18 +21,18 @@ export function ShoppingCartModal() {
     totalPrice,
     redirectToCheckout,
   } = useShoppingCart();
-  
- async function handleCheckoutClick(event:Any) {
-  event.preventDefault();
-  try {
-    const result = await redirectToCheckout();
-    if(result?.error){
-      console.log("Checkout error:", result.error);
+
+  async function handleCheckoutClick(event: Any) {
+    event.preventDefault();
+    try {
+      const result = await redirectToCheckout();
+      if (result?.error) {
+        console.log("Checkout error:", result.error);
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
   }
-}
 
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
@@ -99,7 +95,9 @@ export function ShoppingCartModal() {
               Shipping and taxes are calculated at Checkout
             </p>
             <div className="mt-6 ">
-              <Button onClick={handleCheckoutClick} className="w-full">Checkout</Button>
+              <Button onClick={handleCheckoutClick} className="w-full">
+                Checkout
+              </Button>
             </div>
             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
               <p>

@@ -16,11 +16,16 @@ async function getData(category: string) {
   return data;
 }
 
+interface PageProps {
+  params: {
+    category: string;
+  };
+}
+
+
 export default async function CategoryPage({
   params,
-}: {
-  params: { category: string };
-}) {
+}: PageProps) { 
   const { category } = params; 
   console.log("Category param:", category);
 

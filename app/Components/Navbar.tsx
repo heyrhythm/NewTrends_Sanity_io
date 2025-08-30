@@ -3,8 +3,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";
-import { Span } from "next/dist/trace";
+
 import { useShoppingCart } from "use-shopping-cart";
+
+
 
 const links = [
     { href: "/", label: "Home" },
